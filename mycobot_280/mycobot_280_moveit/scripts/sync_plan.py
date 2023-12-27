@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python
 import time
 import rospy
 from sensor_msgs.msg import JointState
@@ -24,8 +24,8 @@ def listener():
     global mc
     rospy.init_node("mycobot_reciver", anonymous=True)
 
-    port = rospy.get_param("~port", "/dev/ttyUSB0")
-    baud = rospy.get_param("~baud", 1000000)
+    port = rospy.get_param("~port", "/dev/ttyACM0")
+    baud = rospy.get_param("~baud", 115200)
     print(port, baud)
     mc = MyCobot(port, baud)
 
